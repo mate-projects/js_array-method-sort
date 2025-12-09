@@ -6,6 +6,18 @@
 function applyCustomSort() {
   [].__proto__.sort2 = function (compareFunction) {
     const defaultComparator = (a, b) => {
+      if (a === b) {
+        return 0;
+      }
+
+      if (a === undefined) {
+        return 1;
+      }
+
+      if (b === undefined) {
+        return -1;
+      }
+
       const strA = String(a);
       const strB = String(b);
 
